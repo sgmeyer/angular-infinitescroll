@@ -50,6 +50,9 @@ mod.directive 'infiniteScroll', ['$rootScope', '$window', '$timeout', ($rootScop
       else if shouldScroll
         checkWhenEnabled = true
 
+    # infinite-scroll-search-control specifies a selector for the search control
+    # used to search/filter the datasource for infinite scroll.  The scroller
+    # doesn't manage the data, but it does manage when it should be repopulated.
     search = ->
       searchValue = $(attrs.infiniteScrollSearchControl.toString())[0].value
       scope.$eval attrs.infiniteScroll, { searchText: searchValue, overrideBusy: true }
